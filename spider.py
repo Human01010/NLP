@@ -79,3 +79,18 @@ wordcloud = WordCloud(font_path=font_path, background_color='white', width=800, 
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 plt.show()
+# Set the font properties to support Chinese characters
+plt.rcParams['font.sans-serif'] = ['SimHei']  # For Simplified Chinese
+plt.rcParams['axes.unicode_minus'] = False  # To fix the minus sign
+
+# Create a bar chart
+plt.figure(figsize=(10, 6))
+plt.bar([word for word, count in top_keywords], [count for word, count in top_keywords])
+plt.xlabel('Words')
+plt.ylabel('Frequency')
+plt.title('Top 10 Most Frequent Words in Dataset')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Show the plot
+plt.show()
